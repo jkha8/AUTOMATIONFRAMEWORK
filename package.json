@@ -156,6 +156,7 @@
     "strip-ansi": "^6.0.1",
     "strip-final-newline": "^2.0.0",
     "supports-color": "^8.1.1",
+    "tesseract.js": "^6.0.1",
     "throttleit": "^1.0.1",
     "through": "^2.3.8",
     "tldts": "^6.1.86",
