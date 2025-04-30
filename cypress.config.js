@@ -1,10 +1,11 @@
 const { defineConfig } = require("cypress");
 const fs = require('fs');
 const path = require('path');
+const Tesseract = require('tesseract.js'); // 🔥 Thêm thư viện OCR
 
 module.exports = defineConfig({
   e2e: {
-    chromeWebSecurity: true,
+    chromeWebSecurity: false,
     setupNodeEvents(on, config) {
       // Define custom tasks
       on('task', {
@@ -13,7 +14,6 @@ module.exports = defineConfig({
           const filePath = path.join(__dirname, 'cypress', 'fixtures', 'userData.json');
           let existingData = [];
 
-          // Check if the file exists, and if so, read its contents
           if (fs.existsSync(filePath)) {
             const fileContent = fs.readFileSync(filePath, 'utf8');
             try {
@@ -26,13 +26,9 @@ module.exports = defineConfig({
             }
           }
 
-          // Append the new user data to the array
           existingData.push(userData);
-
-          // Write the updated data back to the file
           fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
-
-          return null; // Return null to indicate the task was completed
+          return null;
         },
 
         // Save user data to a different JSON file (for 'G' variant)
@@ -40,7 +36,6 @@ module.exports = defineConfig({
           const filePathG = path.join(__dirname, 'cypress', 'fixtures', 'userDataG.json');
           let existingDataG = [];
 
-          // Check if the file exists, and if so, read its contents
           if (fs.existsSync(filePathG)) {
             const fileContent = fs.readFileSync(filePathG, 'utf8');
             try {
@@ -53,15 +48,36 @@ module.exports = defineConfig({
             }
           }
 
-          // Append the new user data to the array
           existingDataG.push(userDataG);
-
-          // Write the updated data back to the file
           fs.writeFileSync(filePathG, JSON.stringify(existingDataG, null, 2));
-
-          return null; // Return null to indicate the task was completed
+          return null;
         },
+
+        // 🔥 OCR Task để đọc ảnh captcha
+        ocrImage(base64Image) {
+          return new Promise((resolve, reject) => {
+            Tesseract.recognize(
+              Buffer.from(base64Image, 'base64'),
+              'eng',
+              { logger: m => console.log(m) }
+            )
+            .then(({ data: { text } }) => {
+              // ✨ Làm gọn text OCR:
+              let cleanText = text
+                .replace(/[^a-zA-Z0-9]/g, '') // Chỉ giữ chữ cái (hoa + thường) và số
+                .trim()                      // Trim đầu cuối
+                .slice(0, 6);                 // Lấy đúng 6 ký tự đầu tiên
+        
+              resolve(cleanText);
+            })
+            .catch(err => {
+              reject(err);
+            });
+          });
+        }
       });
+
+      return config;
     },
   },
 

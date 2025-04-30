@@ -4,7 +4,7 @@ describe('The Home Page', () => {
   })
 
   it('successfully loads', () => {
-    cy.visit('https://debet.so/?a=af0c25945a0e895023b51534e5d4d62e&utm_source=hoaonline247com&utm_medium=pc-floatingright1-70x240&utm_campaign=cpd&utm_term=bong')
+    cy.visit('https://debet.so')
     //cy.get('.button--login > span').click()
     cy.get('.button--login').click()
     const brand = 'Debet';

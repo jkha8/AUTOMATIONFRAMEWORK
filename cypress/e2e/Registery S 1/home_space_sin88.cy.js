@@ -4,7 +4,7 @@ describe('The Home Page', () => {
   })
 
   it('successfully loads', () => {
-    cy.visit('https://sin88.com/?a=88b5f3b1e183a2486c94442240b1f5c0&utm_source=hoaonline247com&utm_medium=pc-midcenter3-1120x52&utm_campaign=cpd&utm_term=bong');
+    cy.visit('https://sin88.com');
     cy.document().then((doc) =>{
       const btn = doc.querySelector('#onsignal-slidedown-allow-button');
       if (btn && btn.offsetParent !== null){
