@@ -1,0 +1,41 @@
+# Node modules
+node_modules/
+
+# Cypress cache
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+cypress/results/
+
+cypress/e2e/z1-getting-started
+cypress/e2e/z2-advanced-examples
+# Cypress binary cache
+Library/Caches/Cypress/
+.cache/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# OS system files
+.DS_Store
+Thumbs.db
+
+# User data files
+encrypted_domains.txt
+cypress/support/encryptUtilsFull.js
+cypress/support/encrypt-toolcopy.js
+cypress/support/encrypt-tool.js
+cypress/support/encryptUtils.js
+
+
+# VSCode settings (optional)
+.vscode/
