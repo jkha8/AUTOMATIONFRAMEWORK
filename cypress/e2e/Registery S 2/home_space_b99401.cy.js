@@ -1,4 +1,8 @@
 const { delay } = require("bluebird")
+const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+
+const encryptedDomain = '43bd67a5adc9bb5c5c92dbd6553cccd1:52cd50495e83ffb7015ea267fc8d2354';
+const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
 
 describe('The Home Page', () => {
   beforeEach(() => {
@@ -7,7 +11,9 @@ describe('The Home Page', () => {
 
   it('successfully loads', () => {
     cy.viewport(1920,1080)
-    cy.visit('https://bong99.com')
+    const domain = decrypt(encryptedDomain);
+    const password = decrypt(encryptedPassword);
+    cy.visit(`https://${domain}`) 
     cy.get('.header__block-right > .v-btn--primary > .v-btn__content').trigger('mouseover').wait(1000).click({force:true});
     //cy.contains('button','Đăng ký').dblclick({force: true})
     //cy.get('body').should('contain.text','Đăng ký').dblclick({force: true})
@@ -26,8 +32,8 @@ describe('The Home Page', () => {
     const phoneNumber = generateRandomPhoneNumber("08");
     cy.log(randomStringAccount)
     cy.get('#input-6').trigger('mouseover').wait(1000).type(randomStringAccount,{delay: 100})
-    cy.get('#input-8').type("Kha6868@",{delay: 100})
-    cy.get('#input-10').type("Kha6868@",{delay: 100})
+    cy.get('#input-8').type(password,{delay: 100})
+    cy.get('#input-10').type(password,{delay: 100})
     cy.get('#input-12').type(phoneNumber)
     cy.wait(2000)
     cy.get('.form-register').contains('Đăng').click()
@@ -36,7 +42,7 @@ describe('The Home Page', () => {
 
     const userData = {
       account: randomStringAccount,
-      password: "Kha6868@",
+      password: encryptedPassword,
       phoneNumber: generateRandomPhoneNumber()
     };
     cy.task('saveUserDataToFile',userData);

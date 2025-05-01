@@ -1,10 +1,16 @@
+const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+
+const encryptedDomain = '30dedd7f36518258b47c1e552a85d1b8:f68dfff18d8b5b757f473f884dcd3aee';
+const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
 describe('The Home Page', () => {
   beforeEach(() => {
     // reset and seed the database prior to every test
   })
 
   it('successfully loads', () => {
-    cy.visit('https://uk88.vip/')
+    const domain = decrypt(encryptedDomain);
+    const password = decrypt(encryptedPassword);
+    cy.visit(`https://${domain}`) 
     cy.get('.user-not-login > .base-button--bg-green').click()
     cy.get('.register').click()
     const brand = 'uk88';
@@ -22,7 +28,7 @@ describe('The Home Page', () => {
     const phoneNumber = generateRandomPhoneNumber("08");
     cy.log(randomStringAccount)
     cy.get(':nth-child(2) > .base-input__wrap > input').type(randomStringAccount)
-    cy.get('.base-input--password > .base-input__wrap > input').type("Kha6868@")
+    cy.get('.base-input--password > .base-input__wrap > input').type(password)
     cy.get(':nth-child(6) > .base-input__wrap > input').type(phoneNumber)
     cy.get('.form-register__action > .base-button').click()
     cy.get('.lucky-number__content--numbers > :nth-child(10)').click()
@@ -30,7 +36,7 @@ describe('The Home Page', () => {
 
     const userData = {
       account: randomStringAccount,
-      password: "Kha6868@",
+      password: encryptedPassword,
       phoneNumber: generateRandomPhoneNumber()
     };
     cy.task('saveUserDataToFile',userData);

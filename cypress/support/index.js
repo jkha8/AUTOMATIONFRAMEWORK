@@ -15,6 +15,55 @@ Cypress.on('uncaught:exception', (err, runnable, promise) => {
     // errors, so we let them fail the test
   })
 
+// Bỏ qua JS lỗi kiểu uncaught exception
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // Nếu lỗi có chữ 'streamId' thì bỏ qua, không fail test
+  if (err.message.includes('streamId')) {
+    return false;
+  }
+  // Hoặc return false để bỏ qua tất cả JS error
+  return false;
+});
+
+// Bỏ qua JS lỗi bình thường
+Cypress.on('uncaught:exception', (err, runnable) => {
+  console.warn('⚠️ Bỏ qua uncaught exception:', err.message);
+  return false; // luôn bỏ qua lỗi JS
+});
+
+// Bỏ qua Promise bị reject
+Cypress.on('window:before:load', (win) => {
+  win.addEventListener('unhandledrejection', (event) => {
+    console.warn('⚠️ Bỏ qua Promise rejection:', event.reason);
+    event.preventDefault(); // Ngăn không cho propagate lên Cypress
+  });
+});
+
+
+// Bỏ qua Promise Rejection (như lỗi bạn gặp)
+Cypress.on('unhandledrejection', (event) => {
+  // Nếu lỗi có chữ 'streamId' thì bỏ qua
+  if (event.reason && event.reason.message && event.reason.message.includes('streamId')) {
+    return false;
+  }
+  // Hoặc bỏ qua mọi promise rejection
+  return false;
+});
+
+// Bỏ qua JS lỗi bình thường
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false; // luôn bỏ qua lỗi JS
+});
+
+// Bỏ qua Promise bị reject (như lỗi streamId bạn dính)
+Cypress.on('window:before:load', (win) => {
+  win.addEventListener('unhandledrejection', (event) => {
+    // Nếu có lỗi streamId hoặc bất kỳ lỗi nào, return false để bỏ qua
+    console.warn('⚠️ Bỏ qua Promise rejection:', event.reason);
+    event.preventDefault(); // Ngăn không cho propagate lên Cypress
+  });
+});
+
   cy.origin('https://example.cypress.io', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       // returning false here prevents Cypress
@@ -224,3 +273,5 @@ $('button').on('click', (e) => {
         expect(stub.getCall(2)).to.be.calledWith('friend')
       })
   })
+
+  

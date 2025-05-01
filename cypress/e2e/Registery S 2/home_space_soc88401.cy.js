@@ -1,14 +1,24 @@
+const { delay } = require("bluebird")
+const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+
+const encryptedDomain = 'a1d1097fca6adc74bc9eb46ab5393bce:abf6821904d3bcfbc567a638fa8086fc';
+const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
+
+
 describe('The Home Page', () => {
   beforeEach(() => {
     // reset and seed the database prior to every test
+    
   })
 
   it('successfully loads', () => {
     cy.viewport(1920,1080)
-    cy.visit('https://soibet.net')
-    //cy.get('.modal-notification__content > img', { timeout: 20000 }).should('be.visible').click()
-    cy.get('#register_btn').click()
-    const brand = 'soibet';
+    const domain = decrypt(encryptedDomain);
+    const password = decrypt(encryptedPassword);
+    cy.visit(`https://${domain}`)
+    //cy.get('[id="btn--login"]').dblclick()
+    cy.get('.button-register').click()
+    const brand = 'soc88';
     const randomStringAccount = `sut17${brand.toLowerCase()}${Math.random().toString(36).substring(2,10)}`
     function generateRandomPhoneNumber(){
       const length = Math.floor(Math.random()*2)+10;
@@ -22,17 +32,18 @@ describe('The Home Page', () => {
     }
     const phoneNumber = generateRandomPhoneNumber("08");
     cy.log(randomStringAccount)
-    cy.get(':nth-child(1) > .base-input__wrap > input').type(randomStringAccount, {delay: 50})
-    cy.get('.base-input--password > .base-input__wrap > input').type("Kha6868@")
-    cy.get(':nth-child(3) > .base-input__wrap > input').type(phoneNumber)
+    cy.get('#username').type(randomStringAccount)
+    cy.get('#password').type(password)
+    cy.get('#passwordConfirm').type(password)
+    cy.get('#phone').type(phoneNumber)
     cy.wait(2000)
-    cy.get('.login-form > .base-button').contains("Đăng ký").click()
+    cy.get('.pt-2').click()
     //cy.get('.form-register > .base-button').should('be.visible').should('not.have.class','inactive').click()
-    cy.get('.username').contains("sut17")
+    cy.get('#swal2-title').contains("ĐĂNG KÝ THÀNH CÔNG")
 
     const userData = {
       account: randomStringAccount,
-      password: "Kha6868@",
+      password: password,
       phoneNumber: generateRandomPhoneNumber()
     };
     cy.task('saveUserDataToFile',userData);

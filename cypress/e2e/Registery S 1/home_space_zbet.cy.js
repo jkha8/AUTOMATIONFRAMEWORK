@@ -1,10 +1,16 @@
+const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+
+const encryptedDomain = '198fde76e52956cdaa9b24994b8c48cc:03c1a8bbccedb4c59d08161d3ef08fa0';
+const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
 describe('The Home Page', () => {
   beforeEach(() => {
     // reset and seed the database prior to every test
   })
 
   it('successfully loads', () => {
-    cy.visit('https://zbet.tv')
+    const domain = decrypt(encryptedDomain);
+    const password = decrypt(encryptedPassword);
+    cy.visit(`https://${domain}`) 
     cy.wait(3000)
     cy.get('body').then(($body) => {
       if($body.find('#onesignal-slidedown-allow-button').length>0){
@@ -32,7 +38,7 @@ describe('The Home Page', () => {
     const randomNumber = Math.floor(Math.random()*10)
     cy.log(randomStringAccount)
     cy.get('.form-register__wrap-input > :nth-child(1) > .base-input__wrap > .base-input__wrap-input > .imask').type(randomStringAccount)
-    cy.get('.base-input--password > .base-input__wrap > .base-input__wrap-input > .imask').type("Kha6868@")
+    cy.get('.base-input--password > .base-input__wrap > .base-input__wrap-input > .imask').type(password)
     cy.get(':nth-child(2) > .base-input__wrap > .base-input__wrap-input > .imask').type(phoneNumber)
     cy.wait(2000)
     cy.get('.form-register__wrap-btn > .btn > .base-button--content').click()
@@ -41,7 +47,7 @@ describe('The Home Page', () => {
 
     const userData = {
       account: randomStringAccount,
-      password: "Kha6868@",
+      password: encryptedPassword,
       phoneNumber: generateRandomPhoneNumber()
     };
     cy.task('saveUserDataToFile',userData);

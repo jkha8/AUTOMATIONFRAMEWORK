@@ -1,10 +1,16 @@
+const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+
+const encryptedDomain = '1a596bd17b92a740023a20f54092c3c9:410ad5c4091c280430c397eb5508e9cf';
+const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
 describe('The Home Page', () => {
   beforeEach(() => {
     // reset and seed the database prior to every test
   })
 
   it('successfully loads', () => {
-    cy.visit('https://may88.com/', {
+    const domain = decrypt(encryptedDomain);
+    const password = decrypt(encryptedPassword);
+    cy.visit(`https://${domain}`, {
       auth:{
         username: 'admin',
         password: 'admin123'
@@ -37,14 +43,14 @@ describe('The Home Page', () => {
     //const randomNumber = Math.floor(Math.random()*10)
     cy.log(randomStringAccount)
     cy.get(':nth-child(3) > #username > .form__group > .form-text > #username_id').type(randomStringAccount)
-    cy.get(':nth-child(4) > #password > .form__group > #password_id').type("Kha6868@")
+    cy.get(':nth-child(4) > #password > .form__group > #password_id').type(password)
     cy.get('#phone_id').type(phoneNumber)
     cy.get('.text-body-semibold').click()
     cy.get('.base-dropdown-header__user__amount').contains("0 K")
 
     const userData = {
       account: randomStringAccount,
-      password: "Kha6868@",
+      password: encryptedPassword,
       phoneNumber: generateRandomPhoneNumber()
     };
     cy.task('saveUserDataToFile',userData);

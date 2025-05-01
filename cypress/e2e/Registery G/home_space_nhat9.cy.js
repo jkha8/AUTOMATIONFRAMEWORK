@@ -1,15 +1,21 @@
+const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+
+const encryptedDomain = 'c71eb0423477bcb923a2d5d8b02a70ea:5ce9985d77886b670fb55a43c028088a';
+const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
 describe('The Home Page', () => {
   beforeEach(() => {
     // reset and seed the database prior to every test
   })
 
   it('successfully loads', () => {
-    cy.visit('https://qc.nhat9.vip/')
+    const domain = decrypt(encryptedDomain);
+    const password = decrypt(encryptedPassword);
+    cy.visit(`https://${domain}`) 
     const brand = 'nhat9';
     const randomStringAccount = `sut17${brand.toLowerCase()}${Math.random().toString(36).substring(2,10)}`
     cy.log(randomStringAccount)
     cy.get('#usrname').type(randomStringAccount)
-    cy.get('#pwd').type("Kha6868@")
+    cy.get('#pwd').type(password)
     cy.solveCaptchaSmart({
       retries: 3,
       captchaImgSelector: '.recaptcha-bg',
@@ -34,7 +40,7 @@ describe('The Home Page', () => {
 
     const userDataG = {
       account: randomStringAccount,
-      password: "Kha6868@"
+      password: encryptedPassword
     };
     cy.task('saveUserDataToFileG',userDataG);
     cy.log('User data saved:', JSON.stringify(userDataG));

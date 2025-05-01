@@ -1,3 +1,7 @@
+const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+
+const encryptedDomain = 'c6c0f06ba399426a289b1f86ee836fe3:bf5f5aaa4e05f22a30800b3951295239';
+const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
 describe('The Home Page', () => {
   beforeEach(() => {
     // reset hoặc init nếu cần
@@ -35,7 +39,9 @@ describe('The Home Page', () => {
   }
 
   it('successfully loads and register', () => {
-    cy.visit('https://play.iwin.bio/');
+    const domain = decrypt(encryptedDomain);
+    const password = decrypt(encryptedPassword);
+    cy.visit(`https://${domain}`) 
 
     const brand = 'iwin';
     const randomStringAccount = `sut17${brand.toLowerCase()}${Math.random().toString(36).substring(2,10)}`;
@@ -58,8 +64,8 @@ describe('The Home Page', () => {
       cy.get('#GameCanvas').click(399, 630,{force: true},{delay: 50}); // Click nút Đăng ký
 
       cy.get('#EditBoxId_1').type(randomStringAccount, { force: true });
-      cy.get('#EditBoxId_2').click({ force: true }).type('Kha6868@', { force: true });
-      cy.get('#EditBoxId_3').click({ force: true }).type('Kha6868@', { force: true });
+      cy.get('#EditBoxId_2').click({ force: true }).type(password, { force: true });
+      cy.get('#EditBoxId_3').click({ force: true }).type(password, { force: true });
 
       cy.get('#GameCanvas').click(450, 450); // Click nút xác nhận
       cy.wait(3500);
@@ -82,7 +88,7 @@ describe('The Home Page', () => {
     cy.then(() => {
       const userDataG = {
         account: randomStringAccount,
-        password: "Kha6868@"
+        password: encryptedPassword
       };
       cy.task('saveUserDataToFileG', userDataG);
       cy.log('📦 User data saved:', JSON.stringify(userDataG));

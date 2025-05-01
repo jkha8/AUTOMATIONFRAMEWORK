@@ -1,10 +1,16 @@
+const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+
+const encryptedDomain = 'c4ec2e65ef526624fb6fc03d10a57b91:b9029494ce3499a72ef2e4a196bcf31e';
+const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
 describe('The Home Page', () => {
   beforeEach(() => {
     // reset and seed the database prior to every test
   })
 
   it('successfully loads', () => {
-    cy.visit('https://one88.pro')
+    const domain = decrypt(encryptedDomain);
+    const password = decrypt(encryptedPassword);
+    cy.visit(`https://${domain}`) 
     cy.wait(1000)
     cy.get('.header-button').click()
     cy.get('.redirect > span').click()
@@ -23,7 +29,7 @@ describe('The Home Page', () => {
     const phoneNumber = generateRandomPhoneNumber("08");
     cy.log(randomStringAccount)
     cy.get(':nth-child(1) > .base-input__wrap > input').clear().click().type(randomStringAccount, {delay: 50})
-    cy.get('.base-input--password > .base-input__wrap > input').type("Kha6868@")
+    cy.get('.base-input--password > .base-input__wrap > input').type(password)
     cy.get(':nth-child(3) > .base-input__wrap > input').type(phoneNumber)
     cy.wait(2000)
     cy.get('#formRegister').contains("Đăng ký").click()
@@ -32,7 +38,7 @@ describe('The Home Page', () => {
 
     const userData = {
       account: randomStringAccount,
-      password: "Kha6868@",
+      password: encryptedPassword,
       phoneNumber: generateRandomPhoneNumber()
     };
     cy.task('saveUserDataToFile',userData);
