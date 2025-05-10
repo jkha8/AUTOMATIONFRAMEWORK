@@ -18,7 +18,7 @@ describe('The Home Page', () => {
     cy.log(randomStringAccount)
     cy.get('#usrname').type(randomStringAccount)
     cy.get('#pwd').type(password)
-    cy.get('button > img').click()
+    cy.get('button > img').trigger('mouseover').wait(1000).click({force:true});
     cy.wait(5000)
     cy.url().then((newUrl) => {
       const newOrigin = new URL(newUrl).origin;

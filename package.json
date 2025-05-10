@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
-    "cypress": "^14.3.0",
+    "cypress": "^14.3.3",
     "cypress-xpath": "^2.0.1"
   },
   "scripts": {
