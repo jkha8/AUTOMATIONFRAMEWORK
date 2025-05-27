@@ -255,3 +255,80 @@ Cypress.Commands.add('solveCaptchaSmartOnce', (options = {}) => {
     });
   });
   
+
+  Cypress.Commands.add('solveCaptchaCOLOR', ({ inputSelector }) => {
+    // 1. Tìm hướng dẫn captcha
+    //cy.get('body').shadow().contains('Hãy nhập').then((text) => {
+      //cy.get('body').then(($body) => {
+        cy.get('#GameCanvas').then(($canvas) => {
+          const canvas = $canvas[0];
+          const base64 = canvas.toDataURL().replace(/^data:image\/png;base64,/, '');
+        
+          cy.task('saveBase64Image', {
+            filename: 'canvas-text.png',
+            base64,
+          }).then(() => {
+            cy.task('ocrInstruction', {
+              imagePath: 'cypress/screenshots/canvas-text.png',
+            }).then((text) => {
+              cy.log('OCR từ canvas:', text);
+            });
+          });
+    //cy.contains(/Hãy nhập/i).invoke('text').then((text) => {
+      const allowedColors = [];
+      if (text.includes('đen')) allowedColors.push('đen');
+      if (text.includes('đỏ')) allowedColors.push('đỏ');
+      if (text.includes('xanh')) allowedColors.push('xanh');
+  
+      // 2. Tìm ảnh captcha đầu tiên
+      cy.get('img').then(($imgs) => {
+        let found = false;
+        $imgs.each((i, el) => {
+          const src = el.getAttribute('src') || '';
+          if (src.includes('captcha')) {
+            cy.wrap(el).screenshot('captcha-temp');
+            found = true;
+            return false; // break
+          }
+        });
+  
+        cy.wait(1000);
+  
+        // 3. OCR giải
+        cy.task('solveCaptchaTaskV2', {
+          path: 'cypress/screenshots/captcha-temp.png',
+          allowedColors,
+        }).then((captchaText) => {
+          cy.get(inputSelector).clear().type(captchaText);
+        });
+      });
+    });
+  });
+  
+  Cypress.Commands.add('renameScreenshot', (oldName, newName) => {
+    const path = require('path');
+    const fromPath = path.join('cypress', 'screenshots', `${oldName}.png`);
+    const toPath = path.join('cypress', 'screenshots', `${newName}.png`);
+  
+    return cy.task('renameFile', { from: fromPath, to: toPath });
+  });
+
+  Cypress.Commands.add('solveCaptchaSmartAdvanced', (options = {}) => {
+    const {
+      captchaInputSelector = 'input.captcha-input'
+    } = options;
+  
+      cy.readFile('cypress/screenshots/tcaptcha.png', 'base64')
+        .then((base64Image) => cy.task('ocrImage', base64Image))
+        .then((captchaText) => {
+          captchaText = captchaText?.trim();
+  
+          if (!captchaText || captchaText.length < 4) {
+            throw new Error(`❌ Captcha sai hoặc thiếu ký tự: "${captchaText}"`);
+          }
+  
+          cy.get(captchaInputSelector).clear().type(captchaText, { force: true });
+          
+          });
+        });
+  

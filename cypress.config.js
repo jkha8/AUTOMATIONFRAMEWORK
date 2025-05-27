@@ -74,6 +74,23 @@ module.exports = defineConfig({
               reject(err);
             });
           });
+        },
+        renameFile({ from, to }) {
+          return new Promise((resolve, reject) => {
+            fs.rename(from, to, (err) => {
+              if (err) return reject(err);
+              resolve(true);
+            });
+          });
+        },
+        readdir(folder = 'cypress/screenshots') {
+          const fullPath = path.join(__dirname, folder);
+          return new Promise((resolve, reject) => {
+            fs.readdir(fullPath, (err, files) => {
+              if (err) return reject(err);
+              resolve(files);
+            });
+          });
         }
       });
 

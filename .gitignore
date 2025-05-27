@@ -6,6 +6,7 @@ cypress/screenshots/
 cypress/videos/
 cypress/downloads/
 cypress/results/
+debug
 
 cypress/e2e/z1-getting-started
 cypress/e2e/z2-advanced-examples

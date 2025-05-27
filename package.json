@@ -1,8 +1,10 @@
 {
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
-    "cypress": "^14.3.3",
-    "cypress-xpath": "^2.0.1"
+    "cypress": "^14.4.0",
+    "cypress-xpath": "^2.0.1",
+    "jimp": "^1.6.0",
+    "tesseract.js": "^6.0.1"
   },
   "scripts": {
     "cypress:open": "cypress open"
@@ -90,6 +92,7 @@
     "has-symbols": "^1.1.0",
     "has-tostringtag": "^1.0.2",
     "hasown": "^2.0.2",
+    "html2canvas": "^1.4.1",
     "http-signature": "^1.4.0",
     "human-signals": "^1.1.1",
     "ieee754": "^1.2.1",
@@ -156,7 +159,6 @@
     "strip-ansi": "^6.0.1",
     "strip-final-newline": "^2.0.0",
     "supports-color": "^8.1.1",
-    "tesseract.js": "^6.0.1",
     "throttleit": "^1.0.1",
     "through": "^2.3.8",
     "tldts": "^6.1.86",
