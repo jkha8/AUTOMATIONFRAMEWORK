@@ -28,16 +28,7 @@ describe('Đăng ký với captcha động', () => {
         const colorVi = colorMatch ? colorMatch[1] : null;
 
         if (!colorVi) {
-          const password = decrypt(encryptedPassword);
-          //const brand = 'yo88';
-          //const randomAccount = `sut17${brand}${Math.random().toString(36).substring(2, 10)}`;
-
-          cy.get('#EditBoxId_1').type("sut17testvipkha", { force: true });
-          cy.get('#EditBoxId_2').click({ force: true }).type(password, { force: true });
-          cy.get('#GameCanvas').click(480, 430); // nút đăng nhập
-          cy.get('#EditBoxId_4', { timeout: 20000 })  // đợi tối đa 20 giây cho đến khi xuất hiện
-          .click({ force: true })                   // click vào nếu cần
-          .type('ĐN Thành Công', { force: true })
+          throw new Error('❌ Không nhận diện được màu từ instruction!');
         }
 
         const colorMap = {
