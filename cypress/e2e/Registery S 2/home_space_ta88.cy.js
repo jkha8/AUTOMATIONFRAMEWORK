@@ -1,4 +1,4 @@
-const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+const { decrypt } = require('/Users/user/IdeaProjects/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
 
 const encryptedDomain = '5e5d9b16acff9f6d44644ea585cca7d1:ac08d957e6690b8b7c8aefccb41eaed9';
 const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';

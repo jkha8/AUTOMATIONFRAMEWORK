@@ -1,4 +1,4 @@
-const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+const { decrypt } = require('/Users/user/IdeaProjects/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
 
 const encryptedDomain = 'd2be85b0e6aef52dde28bfac41a9719c:5df62895e20cd9388de614533f95b7a2';
 const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
@@ -29,9 +29,9 @@ describe('The Home Page', () => {
     }
     const phoneNumber = generateRandomPhoneNumber("08");
     cy.log(randomStringAccount)
-    cy.get('#register > :nth-child(2) > .input-wrapper > .input-control').type(randomStringAccount)
+    cy.get('#register > :nth-child(1) > .input-wrapper > .input-control').type(randomStringAccount)
     cy.get('#register > .common-text-input.input-password > .input-wrapper > .input-control').type(password)
-    cy.get(':nth-child(4) > .input-wrapper > .input-control').type(phoneNumber)
+    cy.get(':nth-child(3) > .input-wrapper > .input-control').type(phoneNumber)
     cy.wait(2000)
     cy.get('.btn-primary').click()
     //cy.get('.form-register > .base-button').should('be.visible').should('not.have.class','inactive').click()

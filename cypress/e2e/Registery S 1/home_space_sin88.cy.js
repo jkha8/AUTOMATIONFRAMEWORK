@@ -1,4 +1,4 @@
-const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+const { decrypt } = require('/Users/user/IdeaProjects/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
 
 const encryptedDomain = '27aa12cb401780e18dff0d24dfc18c20:dd01b1422995852b1c23617cfceddc79';
 const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
@@ -35,7 +35,8 @@ describe('The Home Page', () => {
     }
     const phoneNumber = generateRandomPhoneNumber("08");
     cy.log(randomStringAccount)
-    cy.get('.box-content > :nth-child(1) > .base-input > .base-input__wrap > .base-input__wrap-input > .imask').type(randomStringAccount)
+    cy.wait(500);
+    cy.get('.box-content > :nth-child(1) > .base-input > .base-input__wrap > .base-input__wrap-input > .imask').type(randomStringAccount, {delay: 50})
     cy.get('.box-content > :nth-child(2) > .base-input > .base-input__wrap > .base-input__wrap-input > .imask').type(phoneNumber)
     cy.get(':nth-child(3) > .base-input > .base-input__wrap > .base-input__wrap-input > .imask').type(password)
     cy.get('.mb-23 > .base-input > .base-input__wrap > .base-input__wrap-input > .imask').type(password)

@@ -1,4 +1,4 @@
-const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+const { decrypt } = require('/Users/user/IdeaProjects/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
 
 const encryptedDomain = '3b63db06ace29e5795bb90e651180906:f127d1f7160df1cef72ed90320b81442';
 const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
@@ -12,7 +12,7 @@ describe('The Home Page', () => {
     const domain = decrypt(encryptedDomain);
     const password = decrypt(encryptedPassword);
     cy.visit(`https://${domain}`) 
-    cy.get('.modal-notification__content > img', { timeout: 20000 }).should('be.visible').click()
+    //cy.get('.modal-notification__content > img', { timeout: 20000 }).should('be.visible').click()
     cy.get('.btn--home-register').click()
     const brand = '11bet';
     const randomStringAccount = `sut17${brand.toLowerCase()}${Math.random().toString(36).substring(2,10)}`

@@ -1,5 +1,5 @@
 const { delay } = require("bluebird")
-const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+const { decrypt } = require('/Users/user/IdeaProjects/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
 
 const encryptedDomain = 'a1d1097fca6adc74bc9eb46ab5393bce:abf6821904d3bcfbc567a638fa8086fc';
 const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';

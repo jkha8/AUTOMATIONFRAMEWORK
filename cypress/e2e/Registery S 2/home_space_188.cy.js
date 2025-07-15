@@ -1,4 +1,4 @@
-const { decrypt } = require('/Users/user/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
+const { decrypt } = require('/Users/user/IdeaProjects/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
 
 const encryptedDomain = 'c4ec2e65ef526624fb6fc03d10a57b91:b9029494ce3499a72ef2e4a196bcf31e';
 const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
@@ -28,9 +28,9 @@ describe('The Home Page', () => {
     }
     const phoneNumber = generateRandomPhoneNumber("08");
     cy.log(randomStringAccount)
-    cy.get(':nth-child(1) > .base-input__wrap > input').clear().click().type(randomStringAccount, {delay: 50})
+    cy.get('#formRegister > :nth-child(2) > .base-input__wrap > input').clear().click().type(randomStringAccount, {delay: 50})
     cy.get('.base-input--password > .base-input__wrap > input').type(password)
-    cy.get(':nth-child(3) > .base-input__wrap > input').type(phoneNumber)
+    cy.get(':nth-child(4) > .base-input__wrap > input').type(phoneNumber)
     cy.wait(2000)
     cy.get('#formRegister').contains("Đăng ký").click()
     //cy.get('.form-register > .base-button').should('be.visible').should('not.have.class','inactive').click()

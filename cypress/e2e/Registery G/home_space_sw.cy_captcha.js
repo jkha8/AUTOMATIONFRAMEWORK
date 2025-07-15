@@ -1,6 +1,6 @@
 const { decrypt } = require('/Users/user/IdeaProjects/AUTOMATIONFRAMEWORK/cypress/support/encryptUtils.js');
 
-const encryptedDomain = '2601a328d5373f0ed8723241b368e2aa:cc697da553f77ce3f73ff726196d7a12';
+const encryptedDomain = 'fb0333765f1501cedce59384f86efdb4:4771ef12282a6f720a6149e0a2d9673f';
 const encryptedPassword = '292f05bb7ba9cfa568f8db8114d5849f:dd670c745b496aa69a0b3a98cb5b6443';
 describe('The Home Page', () => {
   beforeEach(() => {
@@ -11,24 +11,30 @@ describe('The Home Page', () => {
     const domain = decrypt(encryptedDomain);
     const password = decrypt(encryptedPassword);
     cy.visit(`https://${domain}`) 
-    cy.url().then((oldUrl) => {
-      const oldOrigin = new URL(oldUrl).origin;
-    const brand = 'fa88';
+    const brand = 'sunwin';
     const randomStringAccount = `sut17${brand.toLowerCase()}${Math.random().toString(36).substring(2,10)}`
     cy.log(randomStringAccount)
     cy.get('#usrname').type(randomStringAccount)
     cy.get('#pwd').type(password)
-    cy.get('.pc').click()
-    cy.get('body').should('be.visible'); 
-    cy.wait(5000)
-    cy.url().then((newUrl) => {
-      const newOrigin = new URL(newUrl).origin;
-
-      if (newOrigin !== oldOrigin) {
-        cy.log('✅ Đã chuyển domain.');
-      } else {
-        throw new Error('❌ Không chuyển trang – có thể captcha sai hoặc lỗi hệ thống (vượt quá giới hạn hoặc đăng ký quá nhiều tài khoản).');
-      }
+    cy.solveCaptchaSmart({
+      captchaImgSelector: '.recaptcha-bg',
+      captchaInputSelector: '#captcha',
+      submitButtonSelector: 'button > img',
+      waitAfterSubmit: 5000
+      //refreshButtonSelector: '.capcha_icon',
+      //closeNotificationButtonSelector: '.closealert > img'
+    });
+    //cy.get('.closealert > img') //close thông báo
+    //cy.solveCaptcha('.recaptcha-bg', '#captcha');
+    //cy.get('.recaptcha-bg')
+    //cy.get('#captcha')
+    //cy.get('.capcha_icon')
+    //cy.get('button > img').click()
+   
+    // cy.wait(5000)
+    // cy.origin('https://...', () => {
+    //   cy.url().should('include', '....');
+    // });
 
     const userDataG = {
       account: randomStringAccount,
@@ -38,6 +44,4 @@ describe('The Home Page', () => {
     cy.log('User data saved:', JSON.stringify(userDataG));
 
   })
-})
-})
 })
