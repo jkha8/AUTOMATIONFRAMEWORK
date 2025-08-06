@@ -29,7 +29,7 @@ describe('Tự động gửi form dự đoán 50 lần', () => {
             cy.get('.btn-select > li').click()
             // Random chọn đội bóng trong list .btn-select > li
             cy.get('.btn-select > li').then(($teams) => {
-                const teamCount = 31;
+                const teamCount = 11;
                 const randomIndex = Math.floor(Math.random() * teamCount) + 1;
                 cy.get(`#a > :nth-child(${randomIndex})`).click();
                 //cy.wrap($teams[randomIndex]).click();
