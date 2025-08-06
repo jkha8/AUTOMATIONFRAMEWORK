@@ -1,0 +1,38 @@
+{
+  "report_time": "2025-09-15 14:50:51",
+  "runtime": 2.01,
+  "results": [
+    {
+      "url": "https://vin88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://vin88.com",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://vic88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://vic88.com",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://sun.win",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://sunwin.us/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://zo88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://zo88.vip/",
+      "block_type": "redirect",
+      "blocked": true
+    }
+  ]
+}

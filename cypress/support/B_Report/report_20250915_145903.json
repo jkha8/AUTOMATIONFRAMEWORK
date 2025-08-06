@@ -1,0 +1,262 @@
+{
+  "report_time": "2025-09-15 14:59:03",
+  "runtime": 16.49,
+  "results": [
+    {
+      "url": "https://xo88.pro",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://xo88.pro",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://uk88.vip/",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://uk88.vip/",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://five88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://five88.com",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://sv88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://sv88.us/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://may88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://may88.to/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://vivu88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://vivu88.com",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://fo88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://fo88.com",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://dom88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://dom88.com",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://rik88.bet",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://rik88.bet",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://red88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://red88.club/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://sky88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://sky88.club/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://mibet.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://mibet.com",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://8live.biz",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://8live.info/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://86bet.net",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://86bet.net",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://topbet.top",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://topbet.top",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://debet.so",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://debet.fan/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://zbet.tv",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://zbet.tv",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://sin88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://sin88.sx/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://vin88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://vin88.com",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://9win.top",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://9win.vip/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://vic88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://vic88.com",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://zo88.com",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://zo88.vip/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://bbet.win",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://bbet.win",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://yo88.is",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://yo88.win/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://hit.club",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://hit.club",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://zo.win",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://zo.win",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://nhat.vip",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://nhat.vip",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://sun.win",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://sunwin.us/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://gem.win",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://gemwin.vip/",
+      "block_type": "redirect",
+      "blocked": true
+    },
+    {
+      "url": "https://may.club",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://may.club",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://rikvip.win",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://rikvip.win",
+      "block_type": "not_blocked",
+      "blocked": false
+    },
+    {
+      "url": "https://win79.club",
+      "dns": "OK",
+      "http": 200,
+      "final": "https://win79.club",
+      "block_type": "not_blocked",
+      "blocked": false
+    }
+  ]
+}

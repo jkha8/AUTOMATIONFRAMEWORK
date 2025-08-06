@@ -1,0 +1,7 @@
+Report time: 2025-09-15 14:50:51
+Total runtime: 2.01 sec
+
+https://vin88.com -> DNS=OK, HTTP=200, Final=https://vin88.com, BlockType=not_blocked, Blocked=False
+https://vic88.com -> DNS=OK, HTTP=200, Final=https://vic88.com, BlockType=not_blocked, Blocked=False
+https://sun.win -> DNS=OK, HTTP=200, Final=https://sunwin.us/, BlockType=redirect, Blocked=True
+https://zo88.com -> DNS=OK, HTTP=200, Final=https://zo88.vip/, BlockType=redirect, Blocked=True

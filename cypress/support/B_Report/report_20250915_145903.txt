@@ -1,0 +1,35 @@
+Report time: 2025-09-15 14:59:03
+Total runtime: 16.49 sec
+
+https://xo88.pro -> DNS=OK, HTTP=200, Final=https://xo88.pro, BlockType=not_blocked, Blocked=False
+https://uk88.vip/ -> DNS=OK, HTTP=200, Final=https://uk88.vip/, BlockType=not_blocked, Blocked=False
+https://five88.com -> DNS=OK, HTTP=200, Final=https://five88.com, BlockType=not_blocked, Blocked=False
+https://sv88.com -> DNS=OK, HTTP=200, Final=https://sv88.us/, BlockType=redirect, Blocked=True
+https://may88.com -> DNS=OK, HTTP=200, Final=https://may88.to/, BlockType=redirect, Blocked=True
+https://vivu88.com -> DNS=OK, HTTP=200, Final=https://vivu88.com, BlockType=not_blocked, Blocked=False
+https://fo88.com -> DNS=OK, HTTP=200, Final=https://fo88.com, BlockType=not_blocked, Blocked=False
+https://dom88.com -> DNS=OK, HTTP=200, Final=https://dom88.com, BlockType=not_blocked, Blocked=False
+https://rik88.bet -> DNS=OK, HTTP=200, Final=https://rik88.bet, BlockType=not_blocked, Blocked=False
+https://red88.com -> DNS=OK, HTTP=200, Final=https://red88.club/, BlockType=redirect, Blocked=True
+https://sky88.com -> DNS=OK, HTTP=200, Final=https://sky88.club/, BlockType=redirect, Blocked=True
+https://mibet.com -> DNS=OK, HTTP=200, Final=https://mibet.com, BlockType=not_blocked, Blocked=False
+https://8live.biz -> DNS=OK, HTTP=200, Final=https://8live.info/, BlockType=redirect, Blocked=True
+https://86bet.net -> DNS=OK, HTTP=200, Final=https://86bet.net, BlockType=not_blocked, Blocked=False
+https://topbet.top -> DNS=OK, HTTP=200, Final=https://topbet.top, BlockType=not_blocked, Blocked=False
+https://debet.so -> DNS=OK, HTTP=200, Final=https://debet.fan/, BlockType=redirect, Blocked=True
+https://zbet.tv -> DNS=OK, HTTP=200, Final=https://zbet.tv, BlockType=not_blocked, Blocked=False
+https://sin88.com -> DNS=OK, HTTP=200, Final=https://sin88.sx/, BlockType=redirect, Blocked=True
+https://vin88.com -> DNS=OK, HTTP=200, Final=https://vin88.com, BlockType=not_blocked, Blocked=False
+https://9win.top -> DNS=OK, HTTP=200, Final=https://9win.vip/, BlockType=redirect, Blocked=True
+https://vic88.com -> DNS=OK, HTTP=200, Final=https://vic88.com, BlockType=not_blocked, Blocked=False
+https://zo88.com -> DNS=OK, HTTP=200, Final=https://zo88.vip/, BlockType=redirect, Blocked=True
+https://bbet.win -> DNS=OK, HTTP=200, Final=https://bbet.win, BlockType=not_blocked, Blocked=False
+https://yo88.is -> DNS=OK, HTTP=200, Final=https://yo88.win/, BlockType=redirect, Blocked=True
+https://hit.club -> DNS=OK, HTTP=200, Final=https://hit.club, BlockType=not_blocked, Blocked=False
+https://zo.win -> DNS=OK, HTTP=200, Final=https://zo.win, BlockType=not_blocked, Blocked=False
+https://nhat.vip -> DNS=OK, HTTP=200, Final=https://nhat.vip, BlockType=not_blocked, Blocked=False
+https://sun.win -> DNS=OK, HTTP=200, Final=https://sunwin.us/, BlockType=redirect, Blocked=True
+https://gem.win -> DNS=OK, HTTP=200, Final=https://gemwin.vip/, BlockType=redirect, Blocked=True
+https://may.club -> DNS=OK, HTTP=200, Final=https://may.club, BlockType=not_blocked, Blocked=False
+https://rikvip.win -> DNS=OK, HTTP=200, Final=https://rikvip.win, BlockType=not_blocked, Blocked=False
+https://win79.club -> DNS=OK, HTTP=200, Final=https://win79.club, BlockType=not_blocked, Blocked=False
